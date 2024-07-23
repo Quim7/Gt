@@ -13,3 +13,5 @@ Nome dos integrantes:
 David joaquim 
 Khayo fhabyo
 Victor rafael
+Carina leite
+Maria Raquel
