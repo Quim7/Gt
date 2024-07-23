@@ -4,187 +4,199 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afazeres</title>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome CDN CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>To Do List</title>
+    
     <style>
+        /* Reset de estilo */
         * {
-             margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    background-color: mediumslateblue;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    min-height: 100vh;
-}
+        /* Estilo do corpo */
+        body {
+            background-color: mediumslateblue;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-header {
-    font-size: 1.5rem;
-}
+        /* Estilo do cabeçalho */
+        header {
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
 
-header, 
-form {
-    min-height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        /* Estilo do formulário */
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
 
-form input, 
-form button {
-    padding: 0.5rem;
-    padding-left: 1rem;
-    font-size: 1.8rem;
-    border: none;
-    background: white;
-    border-radius: 2rem;
-}
+        form input, 
+        form button {
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 2rem;
+        }
 
-form button {
-    color: rgb(255, 200, 0);
-    background: white;
-    cursor: pointer;
-    transition: all 0.3 ease;
-    margin-left: 0.5rem;
-}
+        form input {
+            flex: 1;
+        }
 
-form button:hover {
-    color: white;
-    background: rgb(255, 200, 0);
-}
+        form button {
+            color: rgb(255, 200, 0);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.fa-plus-circle {
-    margin-top: 0.3rem;
-    margin-left: -8px;
-}
+        form button:hover {
+            color: white;
+            background: rgb(255, 200, 0);
+        }
 
-.todo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .fa-plus-circle {
+            margin-left: -8px;
+        }
 
-.todo-list {
-    min-width: 30%;
-    list-style: none;
-}
+        /* Estilo do container de tarefas */
+        .todo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
 
-.todo {
-    margin: 0.5rem;
-    padding-left: 0.5rem;
-    background: white;
-    color: black;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 2rem;
-}
+        .todo-list {
+            width: 80%;
+            max-width: 600px;
+            list-style: none;
+        }
 
-.todo li {
-    flex: 1;
-}
+        .todo {
+            margin: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            background: white;
+            color: black;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.5s;
+            border-radius: 2rem;
+        }
 
-.trash-btn, 
-.complete-btn {
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
+        .todo li {
+            flex: 1;
+        }
 
-.complete-btn {
-    background: rgb(255, 200, 0);
-}
+        .trash-btn, 
+        .complete-btn {
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 50%;
+        }
 
-.trash-btn {
-    border-top-right-radius: 1.75rem;
-    border-bottom-right-radius: 1.75rem;
-    background: rgb(171, 171, 171);
-}
+        .complete-btn {
+            background: rgb(255, 200, 0);
+        }
 
-.todo-item {
-    padding: 0rem 0.5rem;
-}
+        .trash-btn {
+            background: rgb(171, 171, 171);
+        }
 
-.fa-trash, 
-.fa-check-circle {
-    pointer-events: none;
-}
+        .todo-item {
+            padding: 0 0.5rem;
+        }
 
-.completed {
-    text-decoration: line-through;
-    opacity: 0.5;
-}
+        .fa-trash, 
+        .fa-check-circle {
+            pointer-events: none;
+        }
 
-.slide {
-    transform: translateX(10rem);
-    opacity: 0;
-}
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    border: none;
-}
+        .slide {
+            transform: translateX(10rem);
+            opacity: 0;
+        }
 
-.select {
-    margin: 1rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50px;
-}
+        /* Estilo do seletor */
+        .select {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            background: white;
+            color: rgb(255, 200, 0);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-select {
-    color:rgb(255, 200, 0);
-    width: 10rem;
-    height: 3.2rem;
-    cursor: pointer;
-    padding: 1rem;
-}
+        .select select {
+            appearance: none;
+            border: none;
+            background: transparent;
+            color: inherit;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            width: 100%;
+        }
 
-.select::after {
-    content: "\25BC";
-    position: absolute;
-    background:rgb(255, 200, 0);
-    top: 0;
-    right: 0;
-    padding: 1rem;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
+        .select::after {
+            content: "\25BC";
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
 
-.select::hover::after {
-    background: white;
-    color: rgb(255, 200, 0);
+        .select:hover::after {
+            color: white;
+            background: rgb(255, 200, 0);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>My To Do List</h1>
+        <h1>Lista de Tarefas</h1>
     </header>
     <form action="">
-        <input type="text" class="todo-input" placeholder="New Task">
+        <input type="text" class="todo-input" placeholder="Nova Tarefa">
+        <input type="text" class="user-id-input" placeholder="Digite o ID de um usuário">
         <button class="todo-button" type="submit">
             <i class="fas fa-plus-circle fa-lg"></i>
         </button>
         <div class="select">
             <select name="todos" class="filter-todo">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="incomplete">Incomplete</option>
+                <option value="all">Todos</option>
+                <option value="completed">Completados</option>
+                <option value="incomplete">Incompletos</option>
             </select>
         </div>
     </form>
@@ -194,3 +206,6 @@ select {
     <script src="./script.js"></script>
 </body>
 </html>
+
+
+
