@@ -10,8 +10,13 @@ Passo a passo
 8. para gerenciar suas tarefas.Use o menu suspenso para filtrar tarefas (Todas, Completas, Incompletas).
 _____________________
 Nome dos integrantes:
+
 David joaquim 
+
 Khayo fhabyo
+
 Victor rafael
+
 Carina leite
+
 Maria Raquel
